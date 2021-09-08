@@ -1,0 +1,27 @@
+{% load static %}
+<header>
+	{% block nav %}
+		<div class="container card navbar navbar-expand-sm navbar-toggleable-sm
+			navbar-light  box-shadow mb-3 nav-bg">
+			<div class='container'>
+				<button class="navbar-toggler mb-2" type='button' >
+					<span class='navbar-toggler-icon' onclick="toggle('nav-menu', 'collapse')"></span>
+				</button>
+				<div class="navbar-collapse collapse" id="nav-menu">
+					<ul class='navbar-nav flex-grow-1'>	
+						
+						<li id="Bio" class="nav-item nav-inactive h-100 col-4  text-center clickable" onclick="MovePage('index')">
+							{%block nav-home%}Bio{%endblock%}</li>
+						</li>
+						<li id='Projects' class='nav-item nav-inactive col-4 text-center clickable' onclick="MovePage('projects')">
+							{%block nav-projects %}Projects{%endblock%}</li>
+						</li>
+						<li id='Contact' class='nav-item nav-inactive col-4 text-center clickable' onclick="MovePage('contact')">
+							{%block nav-contact%}Contact{%endblock%}</li>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+</header>

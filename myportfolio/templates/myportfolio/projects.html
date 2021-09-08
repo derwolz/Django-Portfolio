@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class=" mx-auto filter-bg clickable">
+    <div class="mx-auto my-1 ">
+		<div id='filterbutton' class='idle mybutton text-center' onmouseup="btnMouseOff('filterbutton')"  onmousedown="btnMouseOver('filterbutton')" onclick="btnClick('FilterBox')">
+			<div class="btn-label">
+			Filters
+			</div>
+			<button id='FilterBox' class='hide'>Filters</button>
+		</div>
+	</div>
+</div>
+{% include 'myportfolio/_filterpop.html' %}
+
+{% include 'myportfolio/_projectcard.html' %}
+
+{% include 'myportfolio/_projectPopup.html' %}
+
+{% csrf_token %}
+<script>
+var isfilteropen = false;
+const webIndex = 1;
+	var listener = [
+	{% for item in allfilters %}
+	 document.getElementById('{{item}}'),
+	 {% endfor %}
+	]
+	console.log(listener)
+	document.getElementById("FilterBox").addEventListener('click', () =>{
+	if (!isfilteropen){
+		document.getElementById("FilterPage").classList.remove("hide")
+		isfilteropen = true;
+	}else {
+		document.getElementById("FilterPage").classList.add("hide")
+		isfilteropen = false;
+	}
+})
+function prepProject(data) {
+	var image = document.getElementById("Pimg")
+	var title =       document.getElementById("PTitle")
+	var description = document.getElementById("PBlog")
+	var url =         document.getElementById("PURL")
+	InsertImages(description)
+}
+
+</script>

@@ -1,0 +1,59 @@
+{%load static%}
+
+{% for project in projectlist %}
+
+<div class="row my-2" id='{{project}}'>
+	
+	<div class="container card project-card ">
+		<div class="row my-4">
+			<div class="col-4 my-1 mx-2 row">
+			<div class='img-card'>
+				<img class="img-project" src="{{project.imageURL}}" alt="{{project}}">
+				</div>
+				<div class="row mx-auto">
+				{% for cstags in project.cstag_set.all %}
+					<div class="col-5 badge mx-1 my-1 title-active">
+						{{ cstags }}&nbsp;
+					</div>
+				{% endfor %}
+				</div>
+			</div>
+			<div class="col-7 card desc-card">
+				<div class="text-center"><h5>
+					{{project}}
+					<hr>
+				</h5></div>
+				<div class="">
+					{{ project.shortdescription }}
+					<hr>
+					Links:<br>
+					</div>
+					<div class="my-auto">
+					
+					
+					<a href='{{project.URL}}' id='PURL'><img class='icon' 
+					src="{% static '/sources/img/git.png' %}" alt='github logo'></a>
+					
+				</div>   		
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+<script>
+//document.getElementById('{{project}}').addEventListener("click", ()=>{
+////unhide popup
+//	//toggle("Blocker","hide");
+//	//toggle("Projectpop","hide");
+//	console.log('{{project}} clicked')
+//	var url = 'http://127.0.0.1:8000/projects/?with={{project}}';
+//	httpGetAsync(url, prepProject);
+//	
+//	
+////send data to popup
+//})
+
+</script>
+{% endfor %}

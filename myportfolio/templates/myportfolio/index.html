@@ -1,0 +1,90 @@
+{% load static %}
+
+<div class='container large-bg-main pad-top-3 pad-bottom-5 my-1 mainpagebox'>
+	<div class='my-5'>
+
+		<div class=' float-right pad-right-3 pad-left-3 '>
+		
+			<div class='portrait'>
+				<img class='' src="{% static '/sources/img/portrait.png' %}">
+			</div>
+			<div class="mx-2 iconbox">
+				<a class=" badge  my-1 mx-auto" href="https://github.com/derwolz/"><img class='icon' 
+					src="{% static '/sources/img/git.png' %}" alt='github logo'></a>
+				<a class=" badge  my-1 mx-auto" href="https://docs.google.com/document/d/1Msdp6ECSAJlCpu9wcjnuXnU2Iu7Tr09cT9tqIImDcqw/edit?usp=sharing"><img class='icon' 
+					src="{% static '/sources/img/Resume.png' %}" alt='document logo'></a>
+				<a class=" badge  my-1 mx-auto" href="https://linkedin.com/in/blaine-wolz"><img class='icon' 
+					src="{% static '/sources/img/linkedin.png' %}" alt='linkedin logo'></a>
+			</div>
+
+		</div>
+		
+			<div class='container pad-top-2 pad-left-8 pad-right-5 '>
+				<div class='textbox card mx-2 my-2 align-content-center desc-card'>
+					Thank you for visiting my site! I am a full stack developer with knowledge of C#, Python, C++, and Javascript. I graduated from the Tech academy in 2020, and have been using technology to learn and develop tools ever since.
+				</div>
+			</div>
+			<div class='container pad-top-1 pad-left-8 pad-right-5 ' >
+				<div class='card desc-card'>
+				<div class=' under-construction pad-bottom-10'>
+				</div>
+				</div>
+			</div>
+		<div class='pad-left-5 pad-top-3 pad-right-3 '>
+			
+			<div class='mx-2 my-2'>
+				<div id='work-experience' class='card desc-card float-left mx-3'>
+					<h3><div class='text-center mx-2'>Work Experience</div></h3>
+					{% for work in workexp %}
+					
+						<div class='mx-2'>
+							<strong><h5>{{work}}</li></h5></strong>
+							<h5>{{work.start_year}} - {{ work.end_year }}</h5>
+						</div>
+						<ul>
+							{%for desc in workskills %}
+								{% if desc.job == work %}<li>{{ desc }}</li> {% endif %}
+							{%endfor%}
+						</ul>
+					
+					{% endfor %}
+				</div>
+			</div>
+			<div class='mx-5 my-2'>
+				<div id='front-end' class=' card desc-card float-left my-2 mx-2'>
+					<div class='text-center mx-2'>
+						<h4>Front End Skills</h4>
+					</div>
+				<ul>
+					{%for skill in front_skills %}
+					<li>{{skill}}</li>	
+					{% endfor %}
+				</ul>
+				</div>
+			</div>
+			<div class='mx-5 my-2'>
+				<div id='back-end' class=' card desc-card float-left my-2 mx-2'>
+						<div class='text-center mx-2'><h4>Back End Skills</h4></div>
+					<ul>
+						{%for skill in back_skills%}
+						<li>{{skill}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+<script>
+
+const webIndex = 0;
+</script>

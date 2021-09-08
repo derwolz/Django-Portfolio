@@ -1,0 +1,70 @@
+{% load static %}
+<div class='card hide project-card' id="FilterPage">
+	<div class="mx-5 pad-bottom-1">
+	<form  class="row" method='get'>
+	<br>
+	{% csrf_token %}
+	{{ form.as_p }}
+		<div class="row" class='my-3'>
+			<div id='filtersend' class='mybutton idle mx-auto text-center clickable' 
+						onmouseup="btnMouseOff('filtersend')"  onmousedown="btnMouseOver('filtersend')" onclick="btnClick('filtersubmit')">
+				<div class='btn-label'>
+					Submit
+				</div>
+						
+				<input id='filtersubmit' type='submit'  class='hide'>
+			</div>
+			
+		</div>
+	</form>
+	</div>
+	
+</div>
+<script>
+window.addEventListener('load', ()=>{
+	var selectedfilters = document.getElementById("FilterPage").getElementsByTagName('li');
+	for (let i = 0; i < selectedfilters.length; i++){
+		var x = i;
+		//selectedfilters[x].classList.add('title-progress')
+		selectedfilters[x].classList.add('idle')
+		selectedfilters[x].classList.add('mybutton')
+		selectedfilters[x].classList.add('clickable')
+	}
+
+	 for (const li of selectedfilters){
+		
+		li.addEventListener("mousedown", ()=> {
+			console.log(li)
+			if (li.classList.contains('idle')){
+				
+				li.classList.add('pressed')
+				
+				} else {
+				
+				li.classList.add('active-pressed')
+				}
+			});
+		li.addEventListener("mouseup", ()=> {
+			console.log(li)
+			if (li.classList.contains('idle')){
+				li.classList.remove('idle')
+				li.classList.remove('pressed')
+				li.classList.remove('active-pressed')
+				li.classList.add('active')
+				
+				} else {
+				li.classList.remove('active')
+				li.classList.remove('active-pressed')
+				li.classList.remove('pressed')
+				li.classList.add('idle')
+				}
+			});
+	}
+
+})
+
+	
+
+
+
+</script>

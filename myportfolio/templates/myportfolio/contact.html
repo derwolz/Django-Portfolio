@@ -1,0 +1,57 @@
+{% load bootstrap5 %}
+{% load static %}
+<h1></h1>
+
+<div class="row ">
+    <div class="col-lg-6 my-5 large-bg">
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="mx-5 card desc-card">
+		Thank you for visiting my page, I hope you enjoyed it!
+	</div>
+	<br><div class="mx-5 card desc-card text-center">
+		
+        <h3> Contact Information </h3><br>
+		<h4>Baker City, OR<br><br>Der.wolz@gmail.com</h4> <hr>
+		<div class="mx-auto iconbox ">
+				<a class=" badge  my-1 mx-auto" href="https://github.com/derwolz/"><img class='icon' 
+					src="{% static '/sources/img/git.png' %}" alt='github logo'></a>
+				<a class=" badge  my-1 mx-auto" href="https://docs.google.com/document/d/1Msdp6ECSAJlCpu9wcjnuXnU2Iu7Tr09cT9tqIImDcqw/edit?usp=sharing"><img class='icon' 
+					src="{% static '/sources/img/Resume.png' %}" alt='document logo'></a>
+				<a class=" badge  my-1 mx-auto" href="https://linkedin.com/in/blaine-wolz"><img class='icon' 
+					src="{% static '/sources/img/linkedin.png' %}" alt='linkedin logo'></a>
+			</div>
+		</div>
+    </div>
+    <div class="col-lg-6 my-5 ">
+	
+        <div class="card large-bg-inv ">
+			
+            <form method='post' class='pad-left-2'>
+			<br>
+			<br>
+			<div class='float-left pad-left-3'>
+				<img class='' src="{% static '/sources/img/email.png' %}" alt='email icon'>
+			</div>
+			<div class='pad-left-1 text-center'>
+				{% csrf_token %}
+                {{ form.as_p }}
+				<div id='contactbutton' class='mybutton idle mx-auto text-center clickable' 
+					onmouseup="btnMouseOff('contactbutton')"  onmousedown="btnMouseOver('contactbutton')" onclick="btnClick('MsgButton')">
+					<div class='btn-label'>
+					Submit
+					</div>
+                <input type="submit" id='MsgButton' class="my-2 hide" />
+				</div>
+            </form>
+			</div>
+			<br><br>
+        </div>
+        
+    </div>
+</div>
+<script>
+const webIndex = 2;
+</script>

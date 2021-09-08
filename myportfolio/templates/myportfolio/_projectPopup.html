@@ -1,0 +1,29 @@
+{% load static %}
+<div class="row my-2 popup color-bg hide" id="Projectpop">
+
+	<div class="container clickable" >
+		<div class="row">
+			<div class="col-4 mx-2 row">
+				<img class="card img-overflow" id='Pimg' src="{{ currproject.imageURL }}">
+				<div class="row mx-auto">
+				URL Practical<br>
+				<a href='{{currproject.url}}' id='PURL'><img class='icon' 
+					src="{% static '/sources/img/git.png' %}" alt='github logo'></a>
+				</div>
+			</div>
+			<div class="col-7">
+				<div class="text-center" id="PTitle"><h5>
+					{{ currproject.name }}
+				</h5></div>
+				<div class="my-auto" id="PBlog">
+					{{ currproject.description }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+
+
+
+</script>

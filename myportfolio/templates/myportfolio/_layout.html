@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlaineWolz.com</title>
+	{% load bootstrap5 %}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+	{% load static %}
+	<script src="{% static 'js\functions.js' %}"></script>
+	<link rel='stylesheet' type='text/css' href="{% static 'css\site.css' %}">
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+    <header>
+		{% include 'myportfolio/_navbar.html' %}
+    </header>
+    <div class="container h-100">
+        <div class='blocker popup hide' id="Blocker">
+			
+		</div>
+
+            <div class="row my-auto">
+                <div class="arrow position-fixed left clickable" id="LeftArrow" 
+					onclick="MovePage(-1)" onmouseover="startanimationR()" onmouseout="stopanimationR()">
+                    
+                
+				
+				</div>
+				<div class="col-1">
+				</div>
+                <div class="card h-100 col-10 color-bg">
+                    {% include currpage %}
+                </div>
+				<div class='col-1'>
+                <div class="arrow hover position-fixed right clickable" id="RightArrow" 
+					onclick="MovePage(1)" onmouseover="startanimationR()" onmouseout="stopanimationR()">
+						
+					</input>
+                </div>
+				</div>
+            </div>
+            
+    </div>
+	<script>
+	hideArrows()
+	document.getElementById("Blocker").addEventListener("click", ()=>{
+		toggle("Blocker", "hide")
+		toggle("Projectpop", "hide")
+	})
+	window.addEventListener('load',()=>{
+	var bio = document.getElementById("Bio")
+	var projects = document.getElementById("Projects")
+	var contact = document.getElementById("Contact")
+	bio.classList.remove('nav-active')
+	projects.classList.remove('nav-active')
+	contact.classList.remove('nav-actvie')
+	
+	if (webIndex > 1){
+		toggle('Contact', 'nav-active')
+		
+	}
+	else if (webIndex < 1){
+		toggle("Bio",'nav-active')
+	}
+	else {
+		toggle('Projects','nav-active')
+	}
+	})
+	</script>
+
+</body>
