@@ -1,3 +1,4 @@
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -235,8 +236,8 @@ width: 19rem;
 	border-color: black;
 }
 .icon img{
-	height: 100%;
-	width: 100%;
+	height: 43px;
+	width: 43px;
 }
 .project-card {
 	background-image: url('/assets/sources/img/Project Tile.png');
@@ -276,6 +277,13 @@ width: 19rem;
 }
 .mainpagebox {
 	min-height:33em;
+}
+@media screen and (max-width: 992px) {
+	.large-bg-main {
+		
+		background-image: none;
+		background-color: rgba(0,0,0,0);
+	}
 }
 .portrait img {
 	height: 100%;

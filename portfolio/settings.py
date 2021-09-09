@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import json
-with open('etc/config.json') as config_file:
+with open('./etc/config.json') as config_file:
     config = json.load(config_file)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.236', '127.0.0.1', 'blainewolz.ddns.net']
+ALLOWED_HOSTS = ['localhost', '192.168.0.236', '127.0.0.1', 'blainewolz.ddns.net']
 
 
 # Application definition
